@@ -5,13 +5,23 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "react-native start --port=8082",
     "test": "jest",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-navigation/core": "3.5.2",
+    "@react-navigation/native": "3.6.5",
+    "events": "^3.3.0",
     "react": "18.0.0",
-    "react-native": "0.69.4"
+    "react-native": "0.69.12",
+    "react-native-event-bus": "^1.0.0",
+    "react-native-gesture-handler": "^1.4.1",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-splash-screen": "^3.3.0",
+    "react-native-status-bar-height": "^2.6.0",
+    "react-navigation": "3.13.0",
+    "react-navigation-stack": "^1.9.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
