@@ -1,0 +1,29 @@
+diff --git a/node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js b/node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js
+index c829d3e..3bf39ff 100644
+--- a/node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js
++++ b/node_modules/react-native/Libraries/Animated/nodes/AnimatedValue.js
+@@ -90,7 +90,7 @@ class AnimatedValue extends AnimatedWithChildren {
+   constructor(value: number) {
+     super();
+     if (typeof value !== 'number') {
+-      throw new Error('AnimatedValue: Attempting to set value to undefined');
++      // throw new Error('AnimatedValue: Attempting to set value to undefined');
+     }
+     this._startingValue = this._value = value;
+     this._offset = 0;
+@@ -276,7 +276,7 @@ class AnimatedValue extends AnimatedWithChildren {
+ 
+   _updateValue(value: number, flush: boolean): void {
+     if (value === undefined) {
+-      throw new Error('AnimatedValue: Attempting to set value to undefined');
++      // throw new Error('AnimatedValue: Attempting to set value to undefined');
+     }
+ 
+     this._value = value;
+diff --git a/node_modules/react-native/scripts/.packager.env b/node_modules/react-native/scripts/.packager.env
+new file mode 100644
+index 0000000..361f5fb
+--- /dev/null
++++ b/node_modules/react-native/scripts/.packager.env
+@@ -0,0 +1 @@
++export RCT_METRO_PORT=8081

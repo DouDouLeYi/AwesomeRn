@@ -11,6 +11,7 @@ import SplashScreen from 'react-native-splash-screen';
 
 import AppContainer from './app/routers/AppContainer';
 import Portal from './app/component/portal';
+import {Topview} from 'beeshell';
 
 function App(props) {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,6 +36,7 @@ function App(props) {
           onChangeMoreClick: onChangeMoreClick,
         }}
       />
+      <Topview />
     </Portal.Provider>
   );
 }

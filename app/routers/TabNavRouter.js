@@ -10,6 +10,7 @@ import Govern from '../pages/Govern/govern';
 import {statusBarHeight} from '../utils';
 import EventBus from 'react-native-event-bus';
 import event from '../utils/event';
+import Message from '../pages/Message';
 
 const TabBarItem = ({focused, normal, selected}) => (
   <Image
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
 const TabNavRouter = createBottomTabNavigator(
   {
     message: {
-      screen: comp,
+      screen: Message,
       navigationOptions: ({screenProps}) => {
         const {isMoreClick, onChangeMoreClick} = screenProps;
         return {

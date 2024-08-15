@@ -7,12 +7,16 @@
     "ios": "react-native run-ios",
     "start": "react-native start --port=8082",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@react-navigation/core": "3.5.2",
     "@react-navigation/native": "3.6.5",
+    "beeshell": "^2.0.11",
+    "create-react-class": "^15.7.0",
     "events": "^3.3.0",
+    "patch-package": "^8.0.0",
     "react": "18.0.0",
     "react-native": "0.69.12",
     "react-native-event-bus": "^1.0.0",
