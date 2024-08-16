@@ -1,5 +1,4 @@
 // 基础组件
-import Button from './button';
 import Cell from './cell';
 import CellGroup from './cellgroup';
 import ConfigProvider from './configprovider';
@@ -42,7 +41,6 @@ import ActionSheet from './actionsheet';
 import BackTop from './backtop';
 import Dialog from './dialog';
 import Drag from './drag';
-import Notify from './notify';
 import Swipe from './swipe';
 import Switch from './switch';
 import Toast from './toast';
@@ -56,24 +54,20 @@ import CountDown from './countdown';
 import Empty from './empty';
 import NoticeBar from './noticebar';
 import Price from './price';
-import Skeleton from './skeleton';
 import Steps from './steps';
 import Step from './step';
 import Swiper from './swiper';
 import SwiperItem from './swiperitem';
 import Table from './table';
-import Tag from './tag';
 import TrendArrow from './trendarrow';
 import Ellipsis from './ellipsis';
 import Virtuallist from './virtuallist';
-import Progress from './progress';
 
 // 特色组件
 import Card from './card';
 import TimeSelect from './timeselect';
 
 export {
-  Button,
   ConfigProvider,
   Icon,
   Cell,
@@ -82,13 +76,11 @@ export {
   Overlay,
   Popup,
   Portal,
-
   Divider,
   Grid,
   GridItem,
   Row,
   Col,
-
   Elevator,
   FixedNav,
   Indicator,
@@ -99,7 +91,6 @@ export {
   SideNavBarItem,
   Tabbar,
   TabbarItem,
-
   Calendar,
   Checkbox,
   Input,
@@ -107,16 +98,13 @@ export {
   Radio,
   Rate,
   SearchBar,
-
   ActionSheet,
   BackTop,
   Dialog,
   Drag,
-  Notify,
   Swipe,
   Switch,
   Toast,
-
   Avatar,
   Badge,
   Collapse,
@@ -125,18 +113,14 @@ export {
   Empty,
   NoticeBar,
   Price,
-  Skeleton,
   Steps,
   Step,
   Swiper,
   SwiperItem,
   Table,
-  Tag,
   TrendArrow,
   Ellipsis,
   Virtuallist,
-  Progress,
-
   Card,
   TimeSelect,
 };

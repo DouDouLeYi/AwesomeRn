@@ -1,10 +1,9 @@
-import React, { FunctionComponent } from 'react';
-import { View, Text, Image } from 'react-native';
+import React, {FunctionComponent} from 'react';
+import {View, Text, Image} from 'react-native';
 
 import Price from '../price';
-import Tag from '../tag';
 import cardStyles from './styles';
-import { useConfig } from '../configprovider';
+import {useConfig} from '../configprovider';
 
 export interface CardProps {
   imgUrl: string;
@@ -24,7 +23,7 @@ export interface CardProps {
 const defaultProps = {} as CardProps;
 export const Card: FunctionComponent<
   Partial<CardProps> & React.HTMLAttributes<HTMLDivElement>
-> = (props) => {
+> = props => {
   const {
     className,
     style,
@@ -45,13 +44,13 @@ export const Card: FunctionComponent<
     ...props,
   };
 
-  const { theme } = useConfig();
+  const {theme} = useConfig();
   const styles = cardStyles(theme);
 
   return (
     <View style={[styles.container, style]} {...rest}>
       <View style={styles.imgContainer}>
-        <Image style={styles.img} source={{ uri: imgUrl }} />
+        <Image style={styles.img} source={{uri: imgUrl}} />
       </View>
 
       <View style={styles.rightC}>
@@ -65,7 +64,7 @@ export const Card: FunctionComponent<
           <Price price={price} />
           {originTpl || <Price style={styles.goldColor} price={vipPrice} />}
         </View>
-        <View style={styles.tagC}>
+        {/* <View style={styles.tagC}>
           {shopTagTpl || (
             <>
               <Tag type="danger">{shopDesc}</Tag>
@@ -74,7 +73,7 @@ export const Card: FunctionComponent<
               </Tag>
             </>
           )}
-        </View>
+        </View> */}
         <View style={styles.shop}>
           <View>
             <Text style={styles.shopTx}>{shopName}</Text>

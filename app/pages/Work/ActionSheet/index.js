@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Cell from '@nutui/nutui-react-native/components/cell';
-import ActionSheet from '@nutui/nutui-react-native/components/actionsheet';
+import Cell from '../../../components/cell';
+import ActionSheet from '../../../components/actionsheet';
 import {View, Text} from 'react-native';
 
 const ActionSheetDemo = () => {

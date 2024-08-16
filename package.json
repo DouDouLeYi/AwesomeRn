@@ -11,9 +11,9 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "@nutui/nutui-react-native": "^0.0.8",
     "@react-navigation/core": "3.5.2",
     "@react-navigation/native": "3.6.5",
+    "@react-spring/native": "9.3.2",
     "beeshell": "^2.0.11",
     "create-react-class": "^15.7.0",
     "events": "^3.3.0",
@@ -23,12 +23,12 @@
     "react-native-event-bus": "^1.0.0",
     "react-native-gesture-handler": "^1.4.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
+    "react-native-linear-gradient": "^2.8.3",
+    "react-native-root-portal": "^1.0.9",
     "react-native-splash-screen": "^3.3.0",
     "react-native-status-bar-height": "^2.6.0",
     "react-navigation": "3.13.0",
-    "react-navigation-stack": "^1.9.4",
-    "@react-spring/native": "9.3.2",
-    "react-native-root-portal": "^1.0.9"
+    "react-navigation-stack": "^1.9.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

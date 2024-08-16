@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import Cell from '@nutui/nutui-react-native/components/cell';
-import Calendar from '@nutui/nutui-react-native/components/calendar';
-import {Button} from '../../../components';
+import {Cell} from '../../../components';
+import {Calendar} from '../../../components';
 
 const CalendarDemo = () => {
   const [date, setDate] = useState('');
@@ -22,12 +21,7 @@ const CalendarDemo = () => {
   };
   return (
     <>
-      <Cell
-        title="选择单个日期"
-        desc={date ? `${date} ${dateWeek}` : '请选择'}
-        onClick={openSwitch}
-      />
-      <Button type="primary">主要按钮</Button>
+      <Cell title="选择单个日期" onClick={openSwitch} />
       <Calendar
         visible={isVisible}
         defaultValue={date}

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Text} from 'react-native';
-import Table from '@nutui/nutui-react-native/components/table';
+import {Table} from '../../../components';
 
 const TableDemo = () => {
   const [columns1, setColumns1] = useState([
