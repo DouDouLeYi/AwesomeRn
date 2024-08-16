@@ -7,10 +7,9 @@ import px2dp from '../utils/Ratio';
 import polymerizeDrawer from '../pages/polymerizeDrawer/index';
 import toast from '../component/toast';
 import Govern from '../pages/Govern/govern';
-import {statusBarHeight} from '../utils';
-import EventBus from 'react-native-event-bus';
 import event from '../utils/event';
 import Message from '../pages/Message';
+import Work from '../pages/Work';
 
 const TabBarItem = ({focused, normal, selected}) => (
   <Image
@@ -75,7 +74,7 @@ const TabNavRouter = createBottomTabNavigator(
     },
 
     work: {
-      screen: comp,
+      screen: Work,
       navigationOptions: ({screenProps}) => {
         const {isMoreClick, onChangeMoreClick} = screenProps;
         return {
