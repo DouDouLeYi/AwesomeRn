@@ -28,7 +28,7 @@ const ActionSheetDemo = () => {
     <>
       <Cell isLink onClick={() => setIsVisible1(!isVisible1)}>
         <View>
-          <Text>基础用法</Text>
+          <Text>基础用法 ActionSheet</Text>
         </View>
         <Text>{val1}</Text>
       </Cell>
