@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import {Button, NavigationBar, SlideModal, Scrollpicker} from 'beeshell';
-import {screenHeight} from '../../utils/index';
+import {View, Text, TouchableHighlight, TouchableOpacity} from 'react-native';
+import {Button, NavigationBar, SlideModal} from 'beeshell';
+import {screenHeight, screenWidth} from '../../utils/index';
+import {px2dp} from '../../utils';
 
 class Message extends Component {
   render() {
@@ -20,7 +21,7 @@ class Message extends Component {
           }}></NavigationBar>
         <Button
           size="sm"
-          style={{marginTop: 12}}
+          style={{margin: 12}}
           type="default"
           onPress={() => {
             this.slideModal.open();
@@ -33,11 +34,20 @@ class Message extends Component {
           }}
           screenHeight={screenHeight}
           cancelable={true}>
-          <View style={{backgroundColor: '#fff', padding: 20, borderRadius: 4}}>
-            <View>
-              <Text style={{backgroundColor: '#fff'}}>自定义内容</Text>
+          <View
+            style={{
+              backgroundColor: '#fff',
+              padding: px2dp(80),
+              borderRadius: 4,
+              width: screenWidth,
+              height: screenHeight,
+            }}>
+            <Text style={{backgroundColor: '#fff'}}>自定义内容</Text>
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => this.slideModal.close()}>
               <Text>内容比较简单，完全由用户自定义</Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </SlideModal>
       </View>
