@@ -9,8 +9,8 @@ import {
 } from 'react-native';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import {Colors} from '../../../theme';
-import px2dp from '../../../utils/Ratio';
+import {Colors} from '#/theme';
+import {px2dp} from '#/utils';
 
 class BaseSearch extends Component {
   static navigationOptions = ({navigation}) => {
@@ -43,6 +43,7 @@ class BaseSearch extends Component {
     autoFocus: PropTypes.bool,
     showBack: PropTypes.bool,
   };
+
   constructor(props) {
     super(props);
     this.state = {
