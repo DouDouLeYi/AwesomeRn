@@ -55,21 +55,9 @@ export default class GroupMenuMember extends Component {
 
   memberClick() {
     const {item, readonly, navigation} = this.props;
-    const temp = WORKDIC[item.component] || {};
-    const url = temp.toUrl || '';
-    if (!_.isEmpty(url) && readonly) {
-      const obj = {
-        layoutId: temp.layoutId,
-        globalProps: {
-          title: temp?.title,
-          menuCode: temp.menuCode,
-          appParams: temp?.appParams,
-          ...temp?.appParams,
-        },
-      };
-      // eam菜单跳转
-      navigation.navigate(url, {...obj});
-    }
+    // eam菜单跳转
+    console.log('item', item);
+    navigation.navigate(item.key);
   }
 
   renderContent() {
@@ -82,7 +70,7 @@ export default class GroupMenuMember extends Component {
           resizeMode={'contain'}
           source={temp.icon}
         />
-        <Text style={styles.member_item_title}>{temp.title}</Text>
+        <Text style={styles.member_item_title}>{item.label}</Text>
         {this.renderAction()}
       </View>
     );

@@ -9,6 +9,7 @@ import {StackViewStyleInterpolator} from 'react-navigation-stack';
 import SplashPage from '../pages/splash/SplashPage';
 import TabNavRouter from './TabNavRouter';
 import Govern from '../pages/Govern/govern';
+import {GetShellRouter} from '../../examples/routers';
 
 const stackNavConfig = {
   defaultNavigationOptions: {
@@ -87,6 +88,7 @@ const StackNavRouter = createStackNavigator(
       screen: Govern,
       navigationOptions: {},
     },
+    ...GetShellRouter(),
   },
   stackNavConfig,
 );

@@ -46,6 +46,10 @@ module.exports = {
             rootPathPrefix: '@config',
           },
           {
+            rootPathSuffix: './src/beeshell/',
+            rootPathPrefix: '@beeshell',
+          },
+          {
             rootPathSuffix: './app/',
             rootPathPrefix: '#/',
           },

@@ -28,9 +28,7 @@ export default class GroupMenuItem extends Component {
             onPress={() => {
               const {navigation, menu} = this.props;
               navigation.navigate('eamManage', {menu});
-            }}>
-            <Text style={styles.subTitle}>（点击添加常用应用）</Text>
-          </TouchableOpacity>
+            }}></TouchableOpacity>
         );
       } else {
         return <Text style={styles.subTitle}>（拖动可调整应用位置）</Text>;

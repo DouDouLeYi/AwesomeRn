@@ -11,6 +11,8 @@ import BaseSearch from '#/component/assembly/TRSearch';
 import {NavBarView} from '#/component/Navbar';
 import {Colors} from '@theme';
 import GroupMenuItem from '@pages/eam/components/GroupMenuItem';
+import {groupBy, keyBy} from 'lodash';
+import {pageList} from '../../../examples/routers';
 
 class RightButton extends Component {
   render() {
@@ -24,213 +26,59 @@ class RightButton extends Component {
 
 class Eam extends Component {
   _renderGroupMenuItem() {
-    const groupMenus = [
-      {
-        id: 0,
-        sort: 0,
-        groupName: '常用应用',
-        children: [
-          {
-            menuCode: 'ChangZhanGuanLiApp',
-            groupId: 7,
-            sort: 2,
-            source: 'APP',
-            component: 'ChangZhanGuanLi',
-            action: 'delete',
-          },
-          {
-            menuCode: 'LoadSideStopPower',
-            groupId: 7,
-            sort: 4,
-            source: 'APP',
-            component: 'LoadSideStopPower',
-            action: 'delete',
-          },
-          {
-            menuCode: 'WorkTicketApp',
-            groupId: 19,
-            sort: 1,
-            source: 'APP',
-            component: 'WorkTicketApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'CaoZuoPiaoApp',
-            groupId: 19,
-            sort: 2,
-            source: 'APP',
-            component: 'CaoZuoPiaoApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'PersonManageApp',
-            groupId: 24,
-            sort: 1,
-            source: 'APP',
-            component: 'PersonManageApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'DeliverManageApp',
-            groupId: 24,
-            sort: 1,
-            source: 'APP',
-            component: 'DeliverManageApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'WareHouseManagement',
-            groupId: 22,
-            sort: 3,
-            source: 'APP',
-            component: 'WareHouseManagement',
-            action: 'delete',
-          },
-          {
-            menuCode: 'PutInStorage',
-            groupId: 22,
-            sort: 4,
-            source: 'APP',
-            component: 'PutInStorage',
-            action: 'delete',
-          },
-          {
-            menuCode: 'SuppliesStock',
-            groupId: 22,
-            sort: 5,
-            source: 'APP',
-            component: 'SuppliesStock',
-            action: 'delete',
-          },
-          {
-            menuCode: 'OutBoundOrder',
-            groupId: 22,
-            sort: 10,
-            source: 'APP',
-            component: 'OutBoundOrder',
-            action: 'delete',
-          },
-          {
-            menuCode: 'ToolsAndEquipmentApp',
-            groupId: 42,
-            sort: 1,
-            source: 'APP',
-            component: 'ToolsAndEquipmentApp',
-            action: 'delete',
-          },
-        ],
-      },
-      {
-        id: 0,
-        sort: 0,
-        groupName: 'XXX应用',
-        children: [
-          {
-            menuCode: 'ChangZhanGuanLiApp',
-            groupId: 7,
-            sort: 2,
-            source: 'APP',
-            component: 'ChangZhanGuanLi',
-            action: 'delete',
-          },
-        ],
-      },
-      {
-        id: 0,
-        sort: 0,
-        groupName: '常用应用',
-        children: [
-          {
-            menuCode: 'ChangZhanGuanLiApp',
-            groupId: 7,
-            sort: 2,
-            source: 'APP',
-            component: 'ChangZhanGuanLi',
-            action: 'delete',
-          },
-          {
-            menuCode: 'LoadSideStopPower',
-            groupId: 7,
-            sort: 4,
-            source: 'APP',
-            component: 'LoadSideStopPower',
-            action: 'delete',
-          },
-          {
-            menuCode: 'WorkTicketApp',
-            groupId: 19,
-            sort: 1,
-            source: 'APP',
-            component: 'WorkTicketApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'CaoZuoPiaoApp',
-            groupId: 19,
-            sort: 2,
-            source: 'APP',
-            component: 'CaoZuoPiaoApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'PersonManageApp',
-            groupId: 24,
-            sort: 1,
-            source: 'APP',
-            component: 'PersonManageApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'DeliverManageApp',
-            groupId: 24,
-            sort: 1,
-            source: 'APP',
-            component: 'DeliverManageApp',
-            action: 'delete',
-          },
-          {
-            menuCode: 'WareHouseManagement',
-            groupId: 22,
-            sort: 3,
-            source: 'APP',
-            component: 'WareHouseManagement',
-            action: 'delete',
-          },
-          {
-            menuCode: 'PutInStorage',
-            groupId: 22,
-            sort: 4,
-            source: 'APP',
-            component: 'PutInStorage',
-            action: 'delete',
-          },
-          {
-            menuCode: 'SuppliesStock',
-            groupId: 22,
-            sort: 5,
-            source: 'APP',
-            component: 'SuppliesStock',
-            action: 'delete',
-          },
-          {
-            menuCode: 'OutBoundOrder',
-            groupId: 22,
-            sort: 10,
-            source: 'APP',
-            component: 'OutBoundOrder',
-            action: 'delete',
-          },
-          {
-            menuCode: 'ToolsAndEquipmentApp',
-            groupId: 42,
-            sort: 1,
-            source: 'APP',
-            component: 'ToolsAndEquipmentApp',
-            action: 'delete',
-          },
-        ],
-      },
-    ];
+    const groupList = groupBy(pageList, 'group');
+    const name = keyBy(
+      [
+        {
+          label: '通用',
+          key: 'general',
+        },
+        {
+          label: '导航',
+          key: 'navigation',
+        },
+        {
+          label: '数据录入',
+          key: 'dataEntry',
+        },
+
+        {
+          label: '数据展示',
+          key: 'dataDisplay',
+        },
+
+        {
+          label: '操作反馈',
+          key: 'feedback',
+        },
+
+        {
+          label: '其他',
+          key: 'other',
+        },
+
+        {
+          label: '基础工具',
+          key: 'base',
+        },
+
+        {
+          label: '演示',
+          key: 'demo',
+        },
+      ],
+      'key',
+    );
+    const groupMenus = [];
+    Object.keys(groupList).forEach(key => {
+      groupMenus.push({
+        groupName: name[key].label,
+        children: groupList[key].map(item => ({
+          ...item,
+          menuCode: 'ChangZhanGuanLiApp',
+        })),
+      });
+    });
     return groupMenus.reduce((prev, item, index) => {
       prev.push(
         <GroupMenuItem
