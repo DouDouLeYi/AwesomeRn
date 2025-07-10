@@ -4,6 +4,7 @@ import {
   getStatusBarHeight,
   isIPhoneWithDynamicIsland,
 } from './statusBarHeight';
+
 const {width, height} = Dimensions.get('window');
 
 export const screenWidth = width;
@@ -13,7 +14,7 @@ export const isIos = Platform.OS === 'ios';
 export const isIphonex = isIPhoneWithMonobrow() || isIPhoneWithDynamicIsland();
 export const NavConfig = {
   height: isAndroid ? 50 : isIphonex ? 88 : 64,
-  top: isAndroid ? 20 : isIphonex ? 60 : 20,
+  top: isAndroid ? 20 : isIphonex ? 50 : 20,
 };
 
 export const statusBarHeight = getStatusBarHeight();

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import Portal from '../../component/portal';
-import {mTheme, Fontsize} from '../../theme';
-import {ImageRes} from '../../assets/Assets';
-import {screenH, screenW} from '../../utils/ScreenUtil';
+import {mTheme, Fontsize} from '#/theme';
+import {ImageRes} from '#/assets/Assets';
+import {screenH, screenW} from '#/utils/ScreenUtil';
 
 const MENU_LIST = [
   {

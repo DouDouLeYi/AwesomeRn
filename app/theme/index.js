@@ -1,5 +1,6 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
-import {px2dp} from '../utils';
+import {px2dp} from '../utils/index';
+
 export const isAndroid = Platform.OS === 'android' ? true : false;
 const {width, height} = Dimensions.get('window');
 const iPhone6AndAbove = height / width > 1.775 ? true : false;

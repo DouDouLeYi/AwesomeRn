@@ -1,4 +1,4 @@
-import {Dimensions} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
 
 export const screenW = Dimensions.get('window').width; //  设备的宽度
 export const screenH = Dimensions.get('window').height; // 设备的高度
@@ -17,3 +17,9 @@ const _scaleHeight = screenH / defaultHeight;
 export function scaleSize(size) {
   return size * _scaleWidth;
 }
+
+export const APPBAR_HEIGHT = Platform.select({
+  ios: 44,
+  android: 56,
+  default: 64,
+});
