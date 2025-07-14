@@ -2,6 +2,8 @@ import React from 'react';
 import {Image, ImageStyle, ImageSourcePropType} from 'react-native';
 import variables from '../../common/styles/variables';
 
+// import  a from '../../../beeshell/common/images/icons/angle-down.png'
+
 export interface IconProps {
   style?: ImageStyle;
   type?: string;

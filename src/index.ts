@@ -33,3 +33,8 @@ export * from './beeshell/components/BottomModal';
 export * from './beeshell/components/Picker';
 
 export * from './beeshell/components/Topview';
+
+export * from './beeshell/modules/Dropdown';
+export * from './beeshell/modules/Popover';
+export * from './beeshell/modules/TreeView';
+export * from './beeshell/modules/Ruler';

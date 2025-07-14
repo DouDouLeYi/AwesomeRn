@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 import {
   Text,
@@ -6,49 +6,57 @@ import {
   View,
   Animated,
   ViewStyle,
-  TextStyle
-} from 'react-native'
-import buttonStyles from './styles'
-export { buttonStyles }
-import variables from '../../common/styles/variables'
-import { FadeAnimated } from '../../common/animations'
+  TextStyle,
+} from 'react-native';
+import buttonStyles from './styles';
+
+export {buttonStyles};
+import variables from '../../common/styles/variables';
+import {FadeAnimated} from '../../common/animations';
 
 const fontSizeMap = {
   lg: variables.buttonLFontSize,
   md: variables.buttonMFontSize,
-  sm: variables.buttonSFontSize
-}
+  sm: variables.buttonSFontSize,
+};
 
 const paddingMap = {
   lg: {
     paddingHorizontal: variables.buttonLHSpacing,
-    paddingVertical: variables.buttonLVSpacing
+    paddingVertical: variables.buttonLVSpacing,
   },
   md: {
     paddingHorizontal: variables.buttonMHSpacing,
-    paddingVertical: variables.buttonMVSpacing
+    paddingVertical: variables.buttonMVSpacing,
   },
   sm: {
     paddingHorizontal: variables.buttonSHSpacing,
-    paddingVertical: variables.buttonSVSpacing
-  }
-}
+    paddingVertical: variables.buttonSVSpacing,
+  },
+};
 
 export interface ButtonProps {
-  testID?: string
-  style?: ViewStyle | ViewStyle[]
-  textStyle?: TextStyle | TextStyle[]
-  textColorInverse?: boolean
-  type?: 'default' | 'primary' | 'danger' | 'info' | 'success' | 'warning' | 'text'
-  size?: 'sm' | 'md' | 'lg'
-  children?: any
-  disabled?: boolean
-  onPress?: Function
+  testID?: string;
+  style?: ViewStyle | ViewStyle[];
+  textStyle?: TextStyle | TextStyle[];
+  textColorInverse?: boolean;
+  type?:
+    | 'default'
+    | 'primary'
+    | 'danger'
+    | 'info'
+    | 'success'
+    | 'warning'
+    | 'text';
+  size?: 'sm' | 'md' | 'lg';
+  children?: any;
+  disabled?: boolean;
+  onPress?: Function;
 }
 
 export class Button extends React.Component<ButtonProps, any> {
-  private containerRef = null
-  private animated = null
+  private containerRef = null;
+  private animated = null;
 
   static defaultProps = {
     style: {},
@@ -58,13 +66,13 @@ export class Button extends React.Component<ButtonProps, any> {
     size: 'md',
     disabled: false,
     onPress: null,
-  }
+  };
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       buttonWidth: 0,
-    }
+    };
 
     if (variables.buttonEnableAnimated) {
       this.animated = new FadeAnimated({
@@ -72,51 +80,63 @@ export class Button extends React.Component<ButtonProps, any> {
 
         opacityList: [1, 0],
         opacityDuration: 1000,
-      })
+      });
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {}
 
+  measure(...args) {
+    console.log('measure', this.containerRef);
+    this.containerRef.measure.apply(null, args);
   }
 
-  measure (...args) {
-    this.containerRef.measure.apply(null, args)
-  }
-
-  handlePress () {
-    const { disabled, onPress } = this.props
+  handlePress() {
+    const {disabled, onPress} = this.props;
     if (disabled) {
-      return
+      return;
     }
-    this.animated && this.animated.toIn()
+    this.animated && this.animated.toIn();
 
     if (typeof onPress === 'function') {
-      onPress()
+      onPress();
     }
   }
 
-  handleLayout = (e) => {
-    const { width } = e.nativeEvent.layout
+  handleLayout = e => {
+    const {width} = e.nativeEvent.layout;
     this.setState({
-      buttonWidth: width
-    })
-  }
+      buttonWidth: width,
+    });
+  };
 
-  render () {
-    const { type, disabled, style, textStyle, size , children, textColorInverse, testID } = this.props
+  render() {
+    const {
+      type,
+      disabled,
+      style,
+      textStyle,
+      size,
+      children,
+      textColorInverse,
+      testID,
+    } = this.props;
 
-    const styleWrapper = buttonStyles[type + 'Wrapper'] || buttonStyles.defaultWrapper
-    const styleText = buttonStyles[type + 'Text'] || buttonStyles.defaultText
+    const styleWrapper =
+      buttonStyles[type + 'Wrapper'] || buttonStyles.defaultWrapper;
+    const styleText = buttonStyles[type + 'Text'] || buttonStyles.defaultText;
 
-    const inverseStyle = textColorInverse && type !== 'default' && type !== 'text' ? { color: variables.mtdGrayBase } : {}
+    const inverseStyle =
+      textColorInverse && type !== 'default' && type !== 'text'
+        ? {color: variables.mtdGrayBase}
+        : {};
 
-    let animatedStyle: any = {}
+    let animatedStyle: any = {};
     if (this.animated) {
       animatedStyle = {
-        transform: [{ scale: this.animated.getState().scale }],
-        opacity: this.animated.getState().opacity
-      }
+        transform: [{scale: this.animated.getState().scale}],
+        opacity: this.animated.getState().opacity,
+      };
     }
     return (
       <TouchableOpacity
@@ -126,29 +146,29 @@ export class Button extends React.Component<ButtonProps, any> {
           styleWrapper,
           {
             opacity: disabled ? variables.buttonActiveOpacity : 1,
-            ...(paddingMap[size] || paddingMap['md'])
+            ...(paddingMap[size] || paddingMap['md']),
           },
-          style
+          style,
         ]}
         disabled={disabled}
         onPress={() => this.handlePress()}
         activeOpacity={disabled ? 1 : variables.buttonActiveOpacity}
         onLayout={this.handleLayout}>
-
-        {
-          React.isValidElement(children) ? children : (
-            <Text
-              style={[
-                styleText,
-                {
-                  fontSize: fontSizeMap[size] || fontSizeMap['md']
-                },
-                inverseStyle,
-                textStyle
-              ]}
-            >{children}</Text>
-          )
-        }
+        {React.isValidElement(children) ? (
+          children
+        ) : (
+          <Text
+            style={[
+              styleText,
+              {
+                fontSize: fontSizeMap[size] || fontSizeMap['md'],
+              },
+              inverseStyle,
+              textStyle,
+            ]}>
+            {children}
+          </Text>
+        )}
         <Animated.View
           style={[
             {
@@ -160,10 +180,9 @@ export class Button extends React.Component<ButtonProps, any> {
               backgroundColor: 'rgba(0, 0, 0, 0.1)',
               opacity: 0,
             },
-            animatedStyle
-          ]}>
-        </Animated.View>
+            animatedStyle,
+          ]}></Animated.View>
       </TouchableOpacity>
-    )
+    );
   }
 }
