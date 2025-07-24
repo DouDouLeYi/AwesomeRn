@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {
+  ScrollView,
+  StyleSheet,
   Text,
   TouchableOpacity,
   View,
-  StyleSheet,
-  ScrollView,
 } from 'react-native';
 import px2dp from '@utils/px2dp';
 import BaseSearch from '#/component/assembly/TRSearch';
@@ -29,6 +29,10 @@ class Eam extends Component {
     const groupList = groupBy(pageList, 'group');
     const name = keyBy(
       [
+        {
+          label: '应用',
+          key: 'eam',
+        },
         {
           label: '通用',
           key: 'general',
@@ -69,7 +73,18 @@ class Eam extends Component {
       ],
       'key',
     );
-    const groupMenus = [];
+    const groupMenus = [
+      {
+        groupName: '应用',
+        children: [
+          {
+            label: 'demo',
+            key: 'stationInfo',
+            menuCode: 'ChangZhanGuanLiApp',
+          },
+        ],
+      },
+    ];
     Object.keys(groupList).forEach(key => {
       groupMenus.push({
         groupName: name[key].label,

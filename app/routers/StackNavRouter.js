@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, I18nManager, Platform} from 'react-native';
+import {I18nManager, Image, Platform} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import {Colors, Dimens, ImageRes} from '../assets/Assets';
 import LoginPage from '../pages/LoginPage';
@@ -10,6 +10,7 @@ import SplashPage from '../pages/splash/SplashPage';
 import TabNavRouter from './TabNavRouter';
 import Govern from '../pages/Govern/govern';
 import {GetShellRouter} from '../../examples/routers';
+import TRCreateForm from '@components/mould/TRCreateForm';
 
 const stackNavConfig = {
   defaultNavigationOptions: {
@@ -87,6 +88,13 @@ const StackNavRouter = createStackNavigator(
     eam: {
       screen: Govern,
       navigationOptions: {},
+    },
+    stationInfo: {
+      screen: TRCreateForm,
+      navigationOptions: {
+        header: null,
+        gesturesEnabled: false,
+      },
     },
     ...GetShellRouter(),
   },

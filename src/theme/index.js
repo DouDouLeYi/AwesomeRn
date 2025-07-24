@@ -1,5 +1,6 @@
-import {px2dp} from '#/utils';
-import {Dimensions, Platform} from 'react-native';
+import {Dimensions, Platform, StyleSheet} from 'react-native';
+import {BorderRadius, Gap} from '#/theme';
+import px2dp from '@utils/px2dp';
 
 export const Colors = {
   White: '#FFF',
@@ -40,3 +41,57 @@ export const Fontsize = {
   fs_9: isAndroid ? 9 : iPhone6AndAbove ? 10 : 9,
   fs_8: isAndroid ? 8 : iPhone6AndAbove ? 9 : 8,
 };
+
+export const mTheme = StyleSheet.create({
+  container: {flex: 1}, //flex 1,
+  bg_White: {backgroundColor: Colors.bg},
+  bg_Transparent: {backgroundColor: Colors.transparent},
+  bg_Grey: {backgroundColor: Colors.Grey},
+  bg_Red: {backgroundColor: Colors.Red},
+  flex_row: {display: 'flex', flexDirection: 'row'},
+  flex_column: {display: 'flex', flexDirection: 'column'},
+  flex_row_center: {alignItems: 'center'},
+  flex_column_center: {justifyContent: 'center'},
+  font_14: {fontSize: Fontsize.fs_14},
+  text_white: {color: Colors.White},
+  rotate180: {transform: [{rotate: '180deg'}]},
+  rotate90: {transform: [{rotate: '90deg'}]},
+  rotate_90: {transform: [{rotate: '270deg'}]},
+  borer: {
+    borderColor: Colors.borderColor,
+    borderStyle: 'solid',
+    borderWidth: px2dp(0.5),
+  },
+  borer_bottom: {
+    borderBottomColor: Colors.borderColor,
+    borderStyle: 'solid',
+    borderBottomWidth: px2dp(0.5),
+  },
+  /**表单卡片样式*/
+  card_from: {
+    backgroundColor: Colors.bg,
+    overflow: 'hidden',
+  },
+  borderRadius: {borderRadius: px2dp(BorderRadius)},
+  card_from_margin: {marginHorizontal: Gap.gap20},
+  font_title: {
+    fontSize: Fontsize.fs_15,
+    lineHeight: px2dp(22),
+    color: Colors.textColor,
+    fontWeight: '500',
+  },
+  from_padding_horizontal: {paddingHorizontal: px2dp(20)},
+  from_padding_vertical: {paddingVertical: px2dp(10)},
+  placeholderStyle: {color: Colors.placeholderTextColor},
+  font_from_title: {
+    fontSize: Fontsize.fs_13,
+    lineHeight: px2dp(18),
+    color: Colors.textColor,
+  },
+  list_from_title: {
+    fontSize: Fontsize.fs_16,
+    paddingVertical: px2dp(4),
+    color: Colors.textColor,
+  },
+  spaceHeight: {height: px2dp(20), width: 1},
+});

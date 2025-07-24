@@ -1,17 +1,17 @@
 import {
+  DeviceEventEmitter,
   Image,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View,
-  Text,
-  DeviceEventEmitter,
 } from 'react-native';
 import React from 'react';
-import {mTheme, Colors, Fontsize} from '../../theme';
+import {Fontsize, mTheme} from '../../theme';
 import PropTypes from 'prop-types';
-import {isAndroid, NavConfig, px2dp, statusBarHeight} from '../../utils';
+import {isAndroid, px2dp, statusBarHeight} from '../../utils';
 import toast from '../toast';
-import {ImageRes} from '../../assets/Assets';
+import {ImageRes} from '@assets';
 
 function checkPermision() {
   return true;

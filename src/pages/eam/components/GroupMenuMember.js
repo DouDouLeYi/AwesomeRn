@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {View, Image, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {WORKDIC} from '#/page/work/WorkPageHelper';
 import px2dp from '@utils/px2dp';
 import {Fontsize} from '@theme';
 import {ImageRes} from '@assets';
 import {screenWidth} from '#/utils';
-import _ from 'lodash';
 
 export const MENU_ACTION_TYPE = {
   READ: 'read',
@@ -56,6 +55,7 @@ export default class GroupMenuMember extends Component {
   memberClick() {
     const {item, readonly, navigation} = this.props;
     // eam菜单跳转
+    console.log('item', item);
     navigation.navigate(item.key);
   }
 
