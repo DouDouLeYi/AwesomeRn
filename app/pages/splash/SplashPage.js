@@ -6,7 +6,6 @@ export default class SplashPage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {};
-    global.login = false; // 标记是否登录
     global.userId = ''; // 全局的用户ID
     global.name = ''; // 全局的用户ID
     global.userToken = ''; // 全局的 Token

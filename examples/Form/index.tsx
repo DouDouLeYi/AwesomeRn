@@ -21,6 +21,7 @@ import styles from '../common/styles';
 import variables from '../customTheme';
 import momnet from 'moment';
 import validator from '@beeshell/common/utils/validator';
+import renderSafeArea from '@beeshell/common/utils/renderSafeArea';
 
 function ruleName(value: any, targetValue: any) {
   if (!value) {

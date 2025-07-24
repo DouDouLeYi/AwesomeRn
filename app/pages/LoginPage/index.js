@@ -16,6 +16,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import LargeButton from '../../component/button/LargeButton';
 import _ from 'lodash';
 import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
+
 export default class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -336,6 +337,7 @@ export default class LoginPage extends Component {
    * @private
    */
   _onSubmit = async () => {
+    global.login = true;
     dismissKeyboard();
     this.props.navigation.replace('main');
   };

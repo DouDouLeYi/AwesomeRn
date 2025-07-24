@@ -56,7 +56,6 @@ export default class GroupMenuMember extends Component {
   memberClick() {
     const {item, readonly, navigation} = this.props;
     // eam菜单跳转
-    console.log('item', item);
     navigation.navigate(item.key);
   }
 

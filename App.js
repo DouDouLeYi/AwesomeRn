@@ -6,12 +6,20 @@
  */
 
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, useColorScheme} from 'react-native';
+import {LogBox, StyleSheet, useColorScheme} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import AppContainer from './app/routers/AppContainer';
 import Portal from './app/component/portal';
 import {Topview} from '@beeshell/components/Topview';
+
+LogBox.ignoreLogs([
+  'currentlyFocusedField',
+  'EventEmitter',
+  'useNativeDriver',
+  'componentWillReceiveProps',
+  'componentWillMount',
+]);
 
 function App(props) {
   const isDarkMode = useColorScheme() === 'dark';

@@ -87,8 +87,7 @@ export class Button extends React.Component<ButtonProps, any> {
   componentDidMount() {}
 
   measure(...args) {
-    console.log('measure', this.containerRef);
-    this.containerRef.measure.apply(null, args);
+    this.containerRef.measure.apply(this.containerRef, args);
   }
 
   handlePress() {
