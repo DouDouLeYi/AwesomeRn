@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
-import Notification, { NotificationProps } from './notification';
+import {StyleProp, ViewStyle} from 'react-native';
+import Notification, {NotificationProps} from './notification';
 import Portal from '../portal';
 
 let messageInstance: any = null;
+
 export interface ToastProps {
   id?: string;
   msg: string;
@@ -46,7 +47,7 @@ const options: ToastProps = {
   closeOnClickOverlay: false, // 是否点击遮罩可关闭
 };
 
-const toastKeyMap: { [key: number]: 1 } = {};
+const toastKeyMap: {[key: number]: 1} = {};
 
 const remove = (key: number) => {
   Portal.remove(key);
@@ -54,14 +55,14 @@ const remove = (key: number) => {
 };
 
 const removeAll = () => {
-  Object.keys(toastKeyMap).forEach((_key) =>
-    Portal.remove(Number.parseInt(_key, 10))
+  Object.keys(toastKeyMap).forEach(_key =>
+    Portal.remove(Number.parseInt(_key, 10)),
   );
 };
 
 function getInstance(
   props: NotificationProps,
-  callback: (notification: any) => void
+  callback: (notification: any) => void,
 ) {
   if (messageInstance) {
     messageInstance.destroy();
@@ -81,7 +82,8 @@ function notice(opts: any) {
       removeAll();
     }
   }
-  const opts2 = { ...options, ...opts, onClose: close };
+
+  const opts2 = {...options, ...opts, onClose: close};
   getInstance(opts2, (notification: any) => {
     messageInstance = notification;
   });
@@ -90,12 +92,14 @@ function notice(opts: any) {
     <Notification
       {...opts2}
       onAnimationEnd={() => {
+        console.log('onAnimationEnd');
         remove(key);
       }}
-    />
+    />,
   );
   toastKeyMap[key] = 1;
 }
+
 const errorMsg = (msg: any) => {
   if (!msg) {
     console.warn('[NutUI Toast]: msg cannot be null');
@@ -105,27 +109,27 @@ const errorMsg = (msg: any) => {
 export const Toast = {
   text(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, type: 'text', ...option });
+    return notice({msg, type: 'text', ...option});
   },
   success(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, icon: 'success', type: 'success', ...option });
+    return notice({msg, icon: 'success', type: 'success', ...option});
   },
   fail(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, icon: 'failure', type: 'fail', ...option });
+    return notice({msg, icon: 'failure', type: 'fail', ...option});
   },
   loading(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, icon: 'loading', type: 'loading', ...option });
+    return notice({msg, icon: 'loading', type: 'loading', ...option});
   },
   warn(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, icon: 'tips', type: 'warn', ...option });
+    return notice({msg, icon: 'tips', type: 'warn', ...option});
   },
   customIcon(msg: string | React.ReactNode, option = {}) {
     errorMsg(msg);
-    return notice({ msg, ...option });
+    return notice({msg, ...option});
   },
   hide() {
     if (messageInstance) {

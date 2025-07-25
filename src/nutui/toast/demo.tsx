@@ -1,46 +1,46 @@
 import React from 'react';
 
-import { Toast } from './toast';
-import { Cell } from '../cell/cell';
-import { DemoCard, DemoPage } from '../configprovider/styles/demo.page';
+import {Toast} from './toast';
+import {Cell} from '../cell/cell';
+import {DemoCard, DemoPage} from '../configprovider/styles/demo.page';
 
 const ToastDemo = () => {
-  const textToast = (msg) => {
+  const textToast = msg => {
     Toast.text(msg);
   };
 
-  const titleToast = (msg) => {
-    Toast.text(msg, { title: '标题提示' });
+  const titleToast = msg => {
+    Toast.text(msg, {title: '标题提示'});
   };
 
-  const successToast = (msg) => {
+  const successToast = msg => {
     Toast.success(msg);
   };
 
-  const errorToast = (msg) => {
+  const errorToast = msg => {
     Toast.fail(msg);
   };
 
-  const warningToast = (msg) => {
+  const warningToast = msg => {
     Toast.warn(msg);
   };
 
-  const loadingToast = (msg) => {
+  const loadingToast = msg => {
     Toast.loading(msg);
   };
 
-  const duringToast = (msg) => {
-    Toast.text(msg, { duration: 10000 });
+  const duringToast = msg => {
+    Toast.text(msg, {duration: 10000});
   };
 
-  const toastBottom = (msg) => {
+  const toastBottom = msg => {
     Toast.text(msg, {
       center: false,
       bottom: '10%',
     });
   };
 
-  const iconToast = (msg) => {
+  const iconToast = msg => {
     Toast.loading(msg, {
       cover: true, // 是否展示透明遮罩层
       coverColor: 'rgba(0, 0, 0, 0)', // 遮罩颜色设定
@@ -57,8 +57,7 @@ const ToastDemo = () => {
         title="基础用法"
         flexDirection="column"
         backgroundColor="#f7f7f7"
-        padding={0}
-      >
+        padding={0}>
         <Cell
           title="文字提示"
           isLink
@@ -82,8 +81,7 @@ const ToastDemo = () => {
         title="设置展示时长"
         flexDirection="column"
         backgroundColor="#f7f7f7"
-        padding={0}
-      >
+        padding={0}>
         <Cell
           title="加载中"
           isLink
@@ -93,7 +91,7 @@ const ToastDemo = () => {
           title="Toast 不消失"
           isLink
           onClick={() => {
-            Toast.text('Toast 不消失', { duration: 0 });
+            Toast.text('Toast 不消失', {duration: 0});
             setTimeout(() => {
               Toast.hide();
             }, 10000);
@@ -104,8 +102,7 @@ const ToastDemo = () => {
         title="自定义底部高度"
         flexDirection="column"
         backgroundColor="#f7f7f7"
-        padding={0}
-      >
+        padding={0}>
         <Cell
           title="自定义底部高度"
           isLink
@@ -116,8 +113,7 @@ const ToastDemo = () => {
         title="加载状态透明遮罩"
         flexDirection="column"
         backgroundColor="#f7f7f7"
-        padding={0}
-      >
+        padding={0}>
         <Cell
           title="加载状态透明遮罩"
           isLink

@@ -10,8 +10,9 @@ import {LogBox, StyleSheet, useColorScheme} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 
 import AppContainer from './app/routers/AppContainer';
-import Portal from './app/component/portal';
-import {Topview} from '@beeshell/components/Topview';
+import Portal from './app/component/portal'; // byself
+import {Topview} from '@beeshell/components/Topview'; // 美团方案
+import {ConfigProvider} from '@/nutui'; // 京东方案
 
 LogBox.ignoreLogs([
   'currentlyFocusedField',
@@ -35,16 +36,18 @@ function App(props) {
 
   return (
     <Portal.Provider>
-      <AppContainer
-        screenProps={{
-          ...props,
-          isMoreClick,
-          count: 9,
-          messageCount: 10,
-          onChangeMoreClick: onChangeMoreClick,
-        }}
-      />
-      <Topview />
+      <ConfigProvider>
+        <AppContainer
+          screenProps={{
+            ...props,
+            isMoreClick,
+            count: 9,
+            messageCount: 10,
+            onChangeMoreClick: onChangeMoreClick,
+          }}
+        />
+        <Topview />
+      </ConfigProvider>
     </Portal.Provider>
   );
 }

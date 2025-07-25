@@ -13,9 +13,9 @@ export type PortalHostProps = {
 };
 
 export type Operation =
-  | { type: 'mount'; key: number; children: React.ReactNode }
-  | { type: 'update'; key: number; children: React.ReactNode }
-  | { type: 'unmount'; key: number };
+  | {type: 'mount'; key: number; children: React.ReactNode}
+  | {type: 'update'; key: number; children: React.ReactNode}
+  | {type: 'unmount'; key: number};
 
 export type PortalMethods = {
   mount: (children: React.ReactNode) => number;
@@ -39,6 +39,7 @@ class PortalGuard {
   };
   remove = (key: number) => TopViewEventEmitter.emit(removeType, key);
 }
+
 /**
  * portal
  */
@@ -83,7 +84,7 @@ export default class PortalHost extends React.Component<PortalHostProps> {
     this._addType = TopViewEventEmitter.addListener(addType, this._mount);
     this._removeType = TopViewEventEmitter.addListener(
       removeType,
-      this._unmount
+      this._unmount,
     );
 
     while (queue.length && manager) {
@@ -105,10 +106,12 @@ export default class PortalHost extends React.Component<PortalHostProps> {
       }
     }
   }
+
   componentWillUnmount() {
     this._addType.remove();
     this._removeType.remove();
   }
+
   _setManager = (manager?: any) => {
     this._manager = manager;
   };
@@ -118,7 +121,7 @@ export default class PortalHost extends React.Component<PortalHostProps> {
     if (this._manager) {
       this._manager.mount(key, children);
     } else {
-      this._queue.push({ type: 'mount', key, children });
+      this._queue.push({type: 'mount', key, children});
     }
 
     return key;
@@ -128,9 +131,9 @@ export default class PortalHost extends React.Component<PortalHostProps> {
     if (this._manager) {
       this._manager.update(key, children);
     } else {
-      const op: Operation = { type: 'mount', key, children };
+      const op: Operation = {type: 'mount', key, children};
       const index = this._queue.findIndex(
-        (o) => o.type === 'mount' || (o.type === 'update' && o.key === key)
+        o => o.type === 'mount' || (o.type === 'update' && o.key === key),
       );
 
       if (index > -1) {
@@ -145,7 +148,7 @@ export default class PortalHost extends React.Component<PortalHostProps> {
     if (this._manager) {
       this._manager.unmount(key);
     } else {
-      this._queue.push({ type: 'unmount', key });
+      this._queue.push({type: 'unmount', key});
     }
   };
 
@@ -156,8 +159,7 @@ export default class PortalHost extends React.Component<PortalHostProps> {
           mount: this._mount,
           update: this._update,
           unmount: this._unmount,
-        }}
-      >
+        }}>
         {/* Need collapsable=false here to clip the elevations, otherwise they appear above Portal components */}
         <View style={styles.container} collapsable={false}>
           {this.props.children}

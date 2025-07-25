@@ -1,1 +1,1 @@
-# https://nutui.jd.com/react-native/#/zh-CN
+# https://nutui.jd.com/h5/react/2x/#/zh-CN/component/button
