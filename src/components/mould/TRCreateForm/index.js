@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {EamNavBarView} from '#/component/TRNavbar';
+import {EamNavBarView} from '@/components/assembly/TRNavbar';
 import {BorderRadius, Gap, mTheme} from '#/theme';
 import px2dp from '@utils/px2dp';
 import {Colors, Fontsize} from '@theme';
