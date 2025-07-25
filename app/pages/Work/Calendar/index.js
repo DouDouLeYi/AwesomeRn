@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Cell} from '../../../components';
-import {Calendar} from '../../../components';
+import {Calendar, Cell} from '@/nutui';
 
 const CalendarDemo = () => {
   const [date, setDate] = useState('');

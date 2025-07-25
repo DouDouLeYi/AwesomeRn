@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import Cell from '../../../components/cell';
-import ActionSheet from '../../../components/actionsheet';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
+import {ActionSheet, Cell} from '@/nutui';
 
 const ActionSheetDemo = () => {
   const [val1, setVal1] = useState('');

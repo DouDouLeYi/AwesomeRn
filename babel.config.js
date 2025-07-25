@@ -50,6 +50,10 @@ module.exports = {
             rootPathPrefix: '@beeshell',
           },
           {
+            rootPathSuffix: './src/nutui/',
+            rootPathPrefix: '@nutui',
+          },
+          {
             rootPathSuffix: './app/',
             rootPathPrefix: '#/',
           },

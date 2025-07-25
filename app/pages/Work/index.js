@@ -3,7 +3,7 @@ import ActionSheetDemo from './ActionSheet';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import TableDemo from './Table';
 import CalendarDemo from './Calendar';
-import Toast from '../../component/toast';
+import Toast from '#/component/toast';
 
 const Block = () => {
   return <View style={styles.block} />;

@@ -40,6 +40,7 @@ import Demo1Screen from './Demo1Screen';
 import Demo2Screen from './Demo2Screen';
 import Demo3Screen from './Demo3Screen';
 import Demo4Screen from './Demo4Screen';
+import {DemoList} from '@/nutui/demoList';
 
 export const pageList = [
   {
@@ -301,7 +302,7 @@ export const pageList = [
 
 export const GetShellRouter = () => {
   let roObj = {};
-  pageList.forEach(page => {
+  [...pageList, ...DemoList].forEach(page => {
     roObj[page.key] = {
       screen: page.screen,
       navigationOptions: {

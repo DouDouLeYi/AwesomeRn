@@ -13,6 +13,7 @@ import {Colors} from '@theme';
 import GroupMenuItem from '@pages/eam/components/GroupMenuItem';
 import {groupBy, keyBy} from 'lodash';
 import {pageList} from '../../../examples/routers';
+import {DemoList} from '@nutui/demoList';
 
 class RightButton extends Component {
   render() {
@@ -26,9 +27,13 @@ class RightButton extends Component {
 
 class Eam extends Component {
   _renderGroupMenuItem() {
-    const groupList = groupBy(pageList, 'group');
+    const groupList = groupBy([...pageList, ...DemoList], 'group');
     const name = keyBy(
       [
+        {
+          label: 'nutui(京东)',
+          key: 'nutui',
+        },
         {
           label: '应用',
           key: 'eam',
