@@ -1,6 +1,8 @@
 import {Dimensions, Platform, StyleSheet} from 'react-native';
-import {BorderRadius, Gap} from '#/theme';
+import {Gap} from '#/theme';
 import px2dp from '@utils/px2dp';
+
+export const BorderRadius = 4;
 
 export const Colors = {
   White: '#FFF',

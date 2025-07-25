@@ -7,9 +7,13 @@ import {Colors, Fontsize} from '@theme';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {forEach} from 'lodash';
 import TRInput from '@/components/assembly/TRInput';
+import TRSelect from '@components/assembly/TRSelect';
+import TRDateSelect from '@components/assembly/TRDateSelect';
 
 const FORM_FILIATION = {
   input: TRInput,
+  select: TRSelect,
+  date: TRDateSelect,
 };
 export default class TRCreateForm extends Component {
   constructor(props) {
@@ -50,7 +54,7 @@ export default class TRCreateForm extends Component {
       },
       {
         type: 'input',
-        label: '编号',
+        label: '编号x',
         multiple: false,
         showSearch: true,
         formState: 'edit',
@@ -60,6 +64,90 @@ export default class TRCreateForm extends Component {
         showNew: true,
         span: 24,
         isBorder: true,
+      },
+      {
+        span: 24,
+        display: true,
+        showNew: true,
+        showEdit: true,
+        type: 'select',
+        label: '故障分类',
+        title: '故障分类',
+        id: 'fault_type',
+        props: {
+          label: 'label',
+          value: 'value',
+          labels: [],
+        },
+        showSearch: true,
+        response: {
+          isLocal: true,
+          dicData: [
+            {
+              label: '设备故障',
+              value: 'asset_fault',
+            },
+            {
+              label: '客户受累',
+              value: 'customer_involved',
+            },
+            {
+              label: '电网受累',
+              value: 'electric_involved',
+            },
+            {
+              label: '环境受累',
+              value: 'environment_involved',
+            },
+          ],
+          dicQueryConfig: [],
+          otherParams: {},
+        },
+        rules: [
+          {
+            type: 'required',
+            message: '选择故障分类',
+          },
+        ],
+        bindIds: [],
+        isBorder: true,
+        placeholder: '请选择故障分类',
+      },
+      {
+        type: 'date',
+        label: '年月日',
+        span: 24,
+        display: true,
+        isTime: true,
+        isBorder: true,
+        format: 'yyyy-MM-DD',
+        id: 'azrq',
+        showEdit: true,
+        showNew: true,
+      },
+      {
+        type: 'date',
+        label: '年月日时分秒',
+        span: 24,
+        display: true,
+        isTime: true,
+        isBorder: true,
+        format: 'yyyy-MM-DD HH:mm:ss',
+        id: 'YYY',
+        showEdit: true,
+        showNew: true,
+      },
+      {
+        type: 'date',
+        label: '年月',
+        span: 24,
+        display: true,
+        isTime: true,
+        isBorder: true,
+        format: 'yyyy-MM',
+        id: 'YYYD',
+        showEdit: true,
+        showNew: true,
       },
     ];
     const {formData} = this.state;

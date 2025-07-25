@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Colors, Fontsize, mTheme} from '@theme';
 import px2dp from '@utils/px2dp';
 import {isEmpty} from 'lodash';
+import {ImageRes} from '@assets';
 
 class BaseComponent extends Component {
   static defaultProps = {
@@ -29,6 +30,28 @@ class BaseComponent extends Component {
   async componentDidMount() {}
 
   componentWillUnmount(): void {}
+
+  _onArrowRender() {
+    return (
+      <Image
+        resizeMode={'contain'}
+        style={styles.arrow_image}
+        source={ImageRes.from_arrow}
+      />
+    );
+  }
+
+  _onClearRender(callBack) {
+    return (
+      <TouchableOpacity activeOpacity={0.9} onPress={callBack && callBack}>
+        <Image
+          resizeMode={'contain'}
+          style={styles.clear_image}
+          source={ImageRes.eamClear}
+        />
+      </TouchableOpacity>
+    );
+  }
 
   _renderContent() {}
 
