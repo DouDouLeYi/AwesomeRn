@@ -9,11 +9,13 @@ import {forEach} from 'lodash';
 import TRInput from '@/components/assembly/TRInput';
 import TRSelect from '@components/assembly/TRSelect';
 import TRDateSelect from '@components/assembly/TRDateSelect';
+import TRSignatureView from '@components/assembly/TRSignatureView';
 
 const FORM_FILIATION = {
   input: TRInput,
   select: TRSelect,
   date: TRDateSelect,
+  signature: TRSignatureView,
 };
 export default class TRCreateForm extends Component {
   constructor(props) {
@@ -148,6 +150,48 @@ export default class TRCreateForm extends Component {
         id: 'YYYD',
         showEdit: true,
         showNew: true,
+      },
+      {
+        type: 'signature',
+        label: '签字',
+        isList: true,
+        span: 24,
+        tagType: 'form',
+        display: true,
+        id: 'sign_single',
+        formState: 'edit',
+        multiple: false,
+        showEdit: true,
+        showNew: false,
+        rules: [
+          {
+            type: 'required',
+            message: '还有签名未签署',
+          },
+        ],
+        otherTimes: [],
+        bindIds: [],
+      },
+      {
+        type: 'signature',
+        label: '多个签字',
+        isList: true,
+        span: 24,
+        tagType: 'form',
+        display: true,
+        id: 'sign_many',
+        formState: 'edit',
+        multiple: true,
+        showEdit: true,
+        showNew: false,
+        rules: [
+          {
+            type: 'required',
+            message: '还有签名未签署',
+          },
+        ],
+        otherTimes: [],
+        bindIds: [],
       },
     ];
     const {formData} = this.state;

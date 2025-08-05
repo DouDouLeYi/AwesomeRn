@@ -22,7 +22,8 @@ target 'AwesomeRn' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
+  pod 'react-native-signature-capture', :path => '../node_modules/react-native-signature-capture'
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
   target 'AwesomeRnTests' do
     inherit! :complete
     # Pods for testing
