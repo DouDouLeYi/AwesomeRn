@@ -10,12 +10,14 @@ import TRInput from '@/components/assembly/TRInput';
 import TRSelect from '@components/assembly/TRSelect';
 import TRDateSelect from '@components/assembly/TRDateSelect';
 import TRSignatureView from '@components/assembly/TRSignatureView';
+import TRInfoImage from '@components/assembly/TRInfoImage';
 
 const FORM_FILIATION = {
   input: TRInput,
   select: TRSelect,
   date: TRDateSelect,
   signature: TRSignatureView,
+  infoImageForm: TRInfoImage,
 };
 export default class TRCreateForm extends Component {
   constructor(props) {
@@ -191,6 +193,20 @@ export default class TRCreateForm extends Component {
           },
         ],
         otherTimes: [],
+        bindIds: [],
+      },
+      {
+        type: 'infoImageForm',
+        label: '上传图片',
+        span: 24,
+        tagType: 'form',
+        display: true,
+        id: 'in_detail_files',
+        showEdit: true,
+        showNew: false,
+        isCanEdit: true,
+        buttonText: '编辑',
+        rules: [],
         bindIds: [],
       },
     ];

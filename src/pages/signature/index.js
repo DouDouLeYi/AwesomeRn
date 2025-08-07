@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Orientation from 'react-native-orientation-locker';
 import SignatureCapture from 'react-native-signature-capture';
 import {px2dp} from '@utils';
-import {screenW, screenH} from '#/utils/ScreenUtil';
-import {mTheme, Colors, Fontsize} from '@theme';
+import {screenH} from '#/utils/ScreenUtil';
+import {Colors, Fontsize} from '@theme';
 import {HttpCode} from '#/configs/Contacts';
 import DQHttp from '#/http/DQHttpRequest';
-import {Loading, Toast, Alert} from '#/component';
+import {Alert, Loading, Toast} from '#/component';
 import {isAndroid} from '#/assets/Assets';
 import RNFS from 'react-native-fs';
 
