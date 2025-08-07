@@ -26,6 +26,7 @@
     "react-native": "0.69.12",
     "react-native-actionsheet": "^2.4.2",
     "react-native-blob-util": "./private/react-native-blob-util",
+    "react-native-document-picker": "^5.2.0",
     "react-native-event-bus": "^1.0.0",
     "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^1.4.1",
