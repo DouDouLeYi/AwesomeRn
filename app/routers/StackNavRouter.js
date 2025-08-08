@@ -11,6 +11,7 @@ import TabNavRouter from './TabNavRouter';
 import Govern from '../pages/Govern/govern';
 import {GetShellRouter} from '../../examples/routers';
 import TRCreateForm from '@components/mould/TRCreateForm';
+import LookDocumentPage from '@components/assembly/TRFileSelector/LookDocumentPage';
 
 const stackNavConfig = {
   defaultNavigationOptions: {
@@ -91,6 +92,14 @@ const StackNavRouter = createStackNavigator(
     },
     stationInfo: {
       screen: TRCreateForm,
+      navigationOptions: {
+        header: null,
+        gesturesEnabled: false,
+      },
+    },
+    lookDocument: {
+      //
+      screen: LookDocumentPage,
       navigationOptions: {
         header: null,
         gesturesEnabled: false,

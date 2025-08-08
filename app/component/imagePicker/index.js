@@ -32,6 +32,7 @@ class ImagePickerComponent extends Component {
     } else if (this.props.type == DQPermission.PHOTO) {
       this._openPicker();
     } else {
+      console.log('this.props.type', this.ActionSheet);
       this.ActionSheet && this.ActionSheet.open();
     }
   }

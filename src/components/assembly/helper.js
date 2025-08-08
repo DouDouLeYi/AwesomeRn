@@ -1,4 +1,6 @@
 //表单的状态
+import {ImageRes} from '@assets';
+
 export const FORM_STATE = {
   READ: 'readonly',
   CREATE: 'create',
@@ -27,3 +29,38 @@ export const NAV_STATE = {
   ADD_FILE: 'addFile',
   SHAREQRCODE: 'shareQrcode',
 };
+
+export const ICON_LIST = {
+  doc: {icon: ImageRes.doc_word},
+  docx: {icon: ImageRes.doc_word},
+  xml: {icon: ImageRes.doc_xml},
+  image: {icon: ImageRes.doc_image},
+  xls: {icon: ImageRes.doc_xml},
+  xlsx: {icon: ImageRes.doc_xml},
+  unknown: {icon: ImageRes.doc_unknown},
+  pdf: {icon: ImageRes.doc_pdf},
+};
+
+export const ImageTypeList = [
+  'bmp',
+  'jpg',
+  'jpeg',
+  'png',
+  'tif',
+  'gif',
+  'pcx',
+  'tga',
+  'exif',
+  'fpx',
+  'svg',
+  'psd',
+  'cdr',
+  'pcd',
+  'dxf',
+  'ufo',
+  'eps',
+  'ai',
+  'raw',
+  'WMF',
+  'webp',
+];

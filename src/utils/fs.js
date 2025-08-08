@@ -1,8 +1,37 @@
 import ImageResizer from 'react-native-image-resizer';
 import {screenH, screenW} from '#/utils/ScreenUtil';
 import {PixelRatio} from 'react-native';
+import DocumentPicker from 'react-native-document-picker';
 
 export default class Fs {
+  static selectFile({title = '选择文件', limitDoc, limitType}) {
+    let limitTypes = limitType?.length
+      ? limitType
+      : [DocumentPicker.types.allFiles];
+    if (limitDoc) {
+      limitTypes = [
+        DocumentPicker.types.doc,
+        DocumentPicker.types.docx,
+        DocumentPicker.types.pdf,
+        DocumentPicker.types.xls,
+        DocumentPicker.types.xlsx,
+      ];
+    }
+    return new Promise(async resolve => {
+      try {
+        const res = await DocumentPicker.pick({
+          type: limitTypes,
+          copyTo: 'cachesDirectory',
+        });
+        resolve({
+          filePath: res.fileCopyUri,
+          fileSize: res.size,
+          fileType: res.type,
+        });
+      } catch (err) {}
+    });
+  }
+
   static async compress(file = {}) {
     return new Promise(async resolve => {
       try {

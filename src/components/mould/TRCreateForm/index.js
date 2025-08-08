@@ -11,6 +11,7 @@ import TRSelect from '@components/assembly/TRSelect';
 import TRDateSelect from '@components/assembly/TRDateSelect';
 import TRSignatureView from '@components/assembly/TRSignatureView';
 import TRInfoImage from '@components/assembly/TRInfoImage';
+import TRFileSelector from '@components/assembly/TRFileSelector';
 
 const FORM_FILIATION = {
   input: TRInput,
@@ -18,6 +19,7 @@ const FORM_FILIATION = {
   date: TRDateSelect,
   signature: TRSignatureView,
   infoImageForm: TRInfoImage,
+  selectFile: TRFileSelector,
 };
 export default class TRCreateForm extends Component {
   constructor(props) {
@@ -43,6 +45,20 @@ export default class TRCreateForm extends Component {
   _onRenderSchema = () => {
     let list = [];
     const listColumn = [
+      {
+        type: 'selectFile',
+        label: '检定报告',
+        span: 24,
+        widthReduce: 110,
+        tagType: 'form',
+        display: true,
+        compState: 'create',
+        id: 'verification_file',
+        showEdit: true,
+        showNew: false,
+        buttonText: '查看',
+        showAll: true,
+      },
       {
         type: 'input',
         label: '编号',
@@ -205,6 +221,7 @@ export default class TRCreateForm extends Component {
         showEdit: true,
         showNew: false,
         isCanEdit: true,
+        showEditCount: 3,
         buttonText: '编辑',
         rules: [],
         bindIds: [],
