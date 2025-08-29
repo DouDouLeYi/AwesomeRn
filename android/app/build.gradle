@@ -139,6 +139,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+         flavorDimensions "version"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
@@ -224,18 +225,49 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+                    keyAlias KEYALIAS
+                    keyPassword STOREPASSWORD
+                    storeFile file(STOREFILE)
+                    storePassword KEYPASSWORD
+        }
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
-            minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+             signingConfig signingConfigs.release
+             minifyEnabled false
         }
+    }
+
+    productFlavors {
+        // ********生产环境（默认渠道）******
+                online {
+                    dimension "version"
+                    applicationIdSuffix ".online"
+                    buildConfigField ("String","env","\"online\"")
+                    buildConfigField ("String","umeng_appkey","\"641d34a3d1fbcb106255f2ff\"")
+                    buildConfigField ("String","umeng_secret","\"770cf23258010bda8faa62fd71ac0c03\"")
+                    buildConfigField ("String","xiaomi_id","\"2882303761518451967\"")
+                    buildConfigField ("String","xiaomi_key","\"5651845175967\"")
+                    buildConfigField ("String","meizu_app_id","\"132097\"")
+                    buildConfigField ("String","meizu_app_key","\"2ec8acbebe0945bc976f7fc667a323ed\"")
+                    buildConfigField ("String","oppo_app_key","\"2541d8002657426284045a1cfaa5cb37\"")
+                    buildConfigField ("String","oppo_app_secret","\"ba653bff77e54fc994246cfccb3c1dd5\"")
+                    manifestPlaceholders = [
+                            CHANNEL_VALUE: "online",
+                            AMAP_KEY: "2d36e2a853deaa1c89bf9de6d7a2cc81",
+                            app_icon: "@mipmap/ic_launcher",
+                            app_name: "@string/app_name",
+                            vivo_api_key: "f2219de8569d66623e20b326ddf95b59",
+                            vivo_app_id: "103918725",
+                            huawei_app_id: "102475371",
+                    ]
+                }
     }
 
     // applicationVariants are e.g. debug, release
@@ -260,7 +292,7 @@ dependencies {
 
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
-
+    implementation project(':react-native-orientation-locker')
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
